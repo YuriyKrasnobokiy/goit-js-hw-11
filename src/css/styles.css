@@ -1,0 +1,42 @@
+body {
+  background: #b0c4de;
+}
+
+.gallery {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.info {
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  background-color: rgb(53, 80, 129);
+
+  padding: 20px;
+}
+
+.search-form input {
+  width: 400px;
+  font-size: 20px;
+}
+
+.search-btn {
+  width: 170px;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.load-more-btn {
+  width: 170px;
+  font-size: 20px;
+  margin: 0 auto;
+}
