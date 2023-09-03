@@ -33,6 +33,7 @@ async function onSubmit(evt) {
   }
 
   if (data.hits.length === 0) {
+    loadMoreBtn.style.display = 'none';
     Notify.failure(
       'Sorry, there are no images matching your search query. Please try again.'
     );
