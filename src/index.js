@@ -20,16 +20,23 @@ loadMoreBtn.addEventListener('click', onClickMore);
 async function onSubmit(evt) {
   evt.preventDefault();
 
-  loadMoreBtn.style.display = 'none';
   gallery.innerHTML = '';
 
   searchQuery = form.elements.searchQuery.value.trim();
 
   const { data } = await fetchData(page, searchQuery);
-  console.log(data);
+  // console.log(data);
   createMarkup(data);
 
-  Notify.success(`Hooray! We found ${data.totalHits} images 😎`);
+  if (data.hits.length > 0) {
+    Notify.success(`Hooray! We found ${data.totalHits} images 😎`);
+  }
+
+  if (data.hits.length === 0) {
+    Notify.failure(
+      'Sorry, there are no images matching your search query. Please try again.'
+    );
+  }
 
   if (data.hits.length === perPage) {
     loadMoreBtn.style.display = 'block';
@@ -59,37 +66,42 @@ async function fetchData(page, searchQuery) {
 }
 
 function createMarkup(data) {
-  if (data.hits.length === 0) {
-    Notify.failure(
-      'Sorry, there are no images matching your search query. Please try again.'
-    );
-  }
-
   const markup = data.hits
     .map(
       elem =>
-        `<div class="photo-card">
-      <img width="400" height="300" src="${elem.webformatURL}" alt="${elem.tags}" loading="lazy" />
-      <div class="info">
-        <p class="info-item">
-          <b>Likes: ${elem.likes}</b>
-        </p>
-        <p class="info-item">
-          <b>Views: ${elem.views}</b>
-        </p>
-        <p class="info-item">
-          <b>Comments: ${elem.comments}</b>
-        </p>
-        <p class="info-item">
-          <b>Downloads: ${elem.downloads}</b>
-        </p>
-      </div>
-    </div>`
+        `
+        <a class="gallery-link" href="${elem.largeImageURL}">
+        <div class="photo-card">
+          <img width="400" height="300" src="${elem.webformatURL}" alt="${elem.tags}" loading="lazy" />
+          <div class="info">
+            <p class="info-item">
+              <b>Likes: ${elem.likes}</b>
+            </p>
+            <p class="info-item">
+              <b>Views: ${elem.views}</b>
+            </p>
+            <p class="info-item">
+              <b>Comments: ${elem.comments}</b>
+            </p>
+            <p class="info-item">
+              <b>Downloads: ${elem.downloads}</b>
+            </p>
+          </div>
+        </div>
+        </a>
+        `
     )
     .join('');
 
   gallery.insertAdjacentHTML('beforeend', markup);
+  simpleLightBox.refresh();
 }
+
+const simpleLightBox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  captionPosition: 'bottom',
+});
 
 async function onClickMore() {
   page += 1;
