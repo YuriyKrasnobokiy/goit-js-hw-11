@@ -47,14 +47,31 @@ body {
   font-size: 20px;
 }
 
-.search-btn {
+.search-btn,
+.load-more-btn {
+  cursor: pointer;
+  border: none;
   width: 170px;
   font-size: 20px;
   margin-left: 10px;
+  outline: none;
+  border-radius: 12px;
+  background-color: #b0c4de;
+  transition: background-color 250ms cubic-bezier(0, 1.79, 1, -1.16);
 }
 
 .load-more-btn {
-  width: 170px;
-  font-size: 20px;
   margin: 0 auto;
+  background-color: #7789aa;
+  height: 29px;
+}
+
+.load-more-btn:focus,
+.load-more-btn:hover {
+  background-color: #355081;
+}
+
+.search-btn:focus,
+.search-btn:hover {
+  background-color: #7789aa;
 }
