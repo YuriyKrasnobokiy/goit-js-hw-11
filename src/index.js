@@ -8,11 +8,11 @@ const form = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more-btn');
 
+loadMoreBtn.style.display = 'none';
+
 let searchQuery = '';
 let page = 1;
 const perPage = 40;
-
-loadMoreBtn.style.display = 'none';
 
 form.addEventListener('submit', onSubmit);
 loadMoreBtn.addEventListener('click', onClickMore);
@@ -26,11 +26,6 @@ async function onSubmit(evt) {
 
   const { data } = await fetchData(page, searchQuery);
   // console.log(data);
-  createMarkup(data);
-
-  if (data.hits.length > 0) {
-    Notify.success(`Hooray! We found ${data.totalHits} images 😎`);
-  }
 
   if (data.hits.length === 0) {
     loadMoreBtn.style.display = 'none';
@@ -39,14 +34,20 @@ async function onSubmit(evt) {
     );
   }
 
-  if (data.hits.length === perPage) {
-    loadMoreBtn.style.display = 'block';
+  createMarkup(data);
+
+  if (data.hits.length > 1) {
+    Notify.success(`Hooray! We found ${data.totalHits} images 😎`);
   }
 
   if (data.hits.length < perPage && data.hits.length > 0) {
     loadMoreBtn.style.display = 'none';
 
     Notify.info("We're sorry, but you've reached the end of search results.");
+  }
+
+  if (data.hits.length === perPage) {
+    loadMoreBtn.style.display = 'block';
   }
 }
 
