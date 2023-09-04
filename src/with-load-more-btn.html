@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>with load more<button></button></title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script type="module" src="./load-more-btn.js"></script>
+  </head>
+  <body>
+    <p><a href="index.html">Go back</a></p>
+
+    <form class="search-form" id="search-form">
+      <input
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search images..."
+        required
+      />
+      <button class="search-btn" type="submit">Search</button>
+    </form>
+
+    <div class="gallery"></div>
+
+    <button type="button" class="load-more-btn">Load more</button>
+  </body>
+</html>

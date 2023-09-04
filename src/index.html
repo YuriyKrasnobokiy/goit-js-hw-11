@@ -3,24 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HWJS11</title>
+    <title>JSHW11</title>
     <link rel="stylesheet" href="./css/styles.css" />
-    <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-        required
-      />
-      <button class="search-btn" type="submit">Search</button>
-    </form>
-
-    <div class="gallery"></div>
-
-    <button type="button" class="load-more-btn">Load more</button>
+    <ul class="variants-list">
+      <li>
+        <a class="variants-link link" href="with-load-more-btn.html"
+          >with load more btn</a
+        >
+      </li>
+      <li>
+        <a class="variants-link link" href="infinity-scroll.html"
+          >with infinity scroll</a
+        >
+      </li>
+    </ul>
   </body>
 </html>

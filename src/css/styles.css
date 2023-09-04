@@ -2,6 +2,36 @@ body {
   background: #b0c4de;
 }
 
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+  outline: none;
+  color: inherit;
+}
+.variants-list {
+  padding: 20px;
+
+  text-align: center;
+}
+
+.variants-link {
+  font-size: 24px;
+
+  transition: color 250ms cubic-bezier(0, 1.79, 1, -1.16);
+}
+
+.variants-link:focus,
+.variants-link:hover {
+  color: #355081;
+}
+
 .gallery {
   margin-top: 20px;
   display: flex;
@@ -9,11 +39,6 @@ body {
   gap: 20px;
   justify-content: center;
   margin-bottom: 10px;
-}
-
-.gallery-link {
-  color: black;
-  text-decoration: none;
 }
 
 .photo-card {
@@ -35,7 +60,7 @@ body {
 .search-form {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-bottom: 20px;
 
   background-color: rgb(53, 80, 129);
 
