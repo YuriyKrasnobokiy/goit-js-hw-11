@@ -19,7 +19,7 @@ loadMoreBtn.addEventListener('click', onClickMore);
 
 async function onSubmit(evt) {
   evt.preventDefault();
-
+  page = 1;
   gallery.innerHTML = '';
 
   searchQuery = form.elements.searchQuery.value.trim();
