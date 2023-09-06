@@ -52,6 +52,18 @@ ul {
   margin-bottom: 10px;
 }
 
+.gallery-link {
+  text-decoration: none;
+  outline: none;
+  color: black;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-link:hover,
+.gallery-link:focus {
+  color: #355081;
+}
+
 .photo-card {
   border: 1px solid black;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
