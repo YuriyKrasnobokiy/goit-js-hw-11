@@ -14,6 +14,12 @@ ul {
   text-decoration: none;
   outline: none;
   color: inherit;
+  transition: color 250ms cubic-bezier(0, 1.79, 1, -1.16);
+}
+
+.link:focus,
+.link:hover {
+  color: #efefef;
 }
 
 .wrapper {
@@ -35,13 +41,6 @@ ul {
 
 .variants-link {
   font-size: 24px;
-
-  transition: color 250ms cubic-bezier(0, 1.79, 1, -1.16);
-}
-
-.variants-link:focus,
-.variants-link:hover {
-  color: #efefef;
 }
 
 .gallery {
