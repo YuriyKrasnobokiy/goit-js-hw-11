@@ -116,12 +116,3 @@ async function onClickMore() {
     Notify.info("We're sorry, but you've reached the end of search results.");
   }
 }
-
-// const { height: cardHeight } = document
-//   .querySelector('.gallery')
-//   .firstElementChild.getBoundingClientRect();
-
-// window.scrollBy({
-//   top: cardHeight * 2,
-//   behavior: 'smooth',
-// });

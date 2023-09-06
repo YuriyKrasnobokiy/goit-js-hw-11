@@ -15,10 +15,22 @@ ul {
   outline: none;
   color: inherit;
 }
+
+.wrapper {
+  text-align: center;
+  border: 2px solid #efefef;
+  border-radius: 15px;
+  width: 500px;
+  margin: 0 auto;
+}
+
 .variants-list {
   padding: 20px;
-
   text-align: center;
+}
+
+.variants-list-item:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .variants-link {
@@ -29,7 +41,7 @@ ul {
 
 .variants-link:focus,
 .variants-link:hover {
-  color: #355081;
+  color: #efefef;
 }
 
 .gallery {
@@ -91,7 +103,6 @@ ul {
   height: 29px;
 }
 
-.load-more-btn:focus,
 .load-more-btn:hover {
   background-color: #355081;
 }
